@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f6f2;
-  --foreground: #1a2233;
-  --brand: #0f766e;
-  --brand-ink: #0b3b45;
-  --surface: #fffdf9;
-  --accent: #f59e0b;
+  --background: #ffffff;
+  --foreground: #333333;
+  --brand: #1275fd;
+  --brand-ink: #444444;
+  --surface: #ffffff;
+  --accent: #11b7fa;
 }
 
 @theme inline {
@@ -35,9 +35,9 @@ h4 {
 
 .hero-backdrop {
   background:
-    radial-gradient(circle at 15% 20%, rgba(15, 118, 110, 0.2), transparent 45%),
-    radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.18), transparent 40%),
-    linear-gradient(135deg, #f8f6f2 0%, #eef5f4 60%, #f7efe1 100%);
+    radial-gradient(circle at 15% 20%, rgba(18, 117, 253, 0.2), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(17, 183, 250, 0.15), transparent 40%),
+    linear-gradient(135deg, #ffffff 0%, #f5f9ff 60%, #eff8ff 100%);
 }
 
 .panel-shadow {

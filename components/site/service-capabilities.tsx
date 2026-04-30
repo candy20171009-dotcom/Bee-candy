@@ -17,14 +17,18 @@ export function ServiceCapabilities() {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-14">
       <div className="mb-8">
-        <p className="text-xs uppercase tracking-[0.2em] text-brand-ink/65">Service Capabilities</p>
-        <h2 className="mt-2 text-3xl font-bold text-brand-ink">核心服務能力</h2>
+        <p className="text-xs uppercase tracking-[0.2em] text-[#1275FD]">Service Capabilities</p>
+        <h2 className="mt-2 text-3xl font-bold text-[#444]">核心服務能力</h2>
       </div>
       <div className="grid gap-4 md:grid-cols-3">
         {items.map((item, idx) => (
-          <article key={item.title} className="panel-shadow enter-up rounded-xl border border-brand/10 bg-surface p-5" style={{ animationDelay: `${idx * 90}ms` }}>
-            <h3 className="text-lg font-semibold text-brand-ink">{item.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-brand-ink/80">{item.desc}</p>
+          <article
+            key={item.title}
+            className="panel-shadow enter-up rounded-xl border border-[#d8d8d8] bg-white p-5"
+            style={{ animationDelay: `${idx * 90}ms` }}
+          >
+            <h3 className="text-lg font-semibold text-[#444]">{item.title}</h3>
+            <p className="mt-3 text-sm leading-6 text-[#666]">{item.desc}</p>
           </article>
         ))}
       </div>
