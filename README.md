@@ -66,7 +66,14 @@ Supabase 需准备两张表：
 - [Supabase 联调说明](docs/supabase/联调说明.md)
 - [建表 SQL](docs/supabase/schema.sql)
 - [样例数据 SQL](docs/supabase/seed-dividend-sample.sql)
+- [环境变量模板](.env.example)
 
 健康检查接口：
 
 - `GET /api/health/supabase`：检查 Supabase 连接与核心表可读性
+
+联调脚本：
+
+```bash
+./scripts/check-supabase.sh
+```
