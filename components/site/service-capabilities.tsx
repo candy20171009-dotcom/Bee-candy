@@ -15,22 +15,24 @@ const items = [
 
 export function ServiceCapabilities() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-14">
-      <div className="mb-8">
-        <p className="text-xs uppercase tracking-[0.2em] text-[#1275FD]">Service Capabilities</p>
-        <h2 className="mt-2 text-3xl font-bold text-[#444]">核心服務能力</h2>
-      </div>
-      <div className="grid gap-4 md:grid-cols-3">
-        {items.map((item, idx) => (
-          <article
-            key={item.title}
-            className="panel-shadow enter-up rounded-xl border border-[#d8d8d8] bg-white p-5"
-            style={{ animationDelay: `${idx * 90}ms` }}
-          >
-            <h3 className="text-lg font-semibold text-[#444]">{item.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-[#666]">{item.desc}</p>
-          </article>
-        ))}
+    <section className="dark-section border-y border-white/8">
+      <div className="mx-auto w-full max-w-6xl px-6 py-14">
+        <div className="mb-8">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#73c6ff]">Service Capabilities</p>
+          <h2 className="mt-2 text-3xl font-bold text-[#f2f6ff]">核心服務能力</h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {items.map((item, idx) => (
+            <article
+              key={item.title}
+              className="panel-shadow neon-card enter-up rounded-xl p-5"
+              style={{ animationDelay: `${idx * 90}ms` }}
+            >
+              <h3 className="text-lg font-semibold text-[#e6eeff]">{item.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[#b8c8ec]">{item.desc}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
