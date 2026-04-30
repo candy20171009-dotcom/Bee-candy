@@ -1,0 +1,42 @@
+[
+  {
+    "id": "d1",
+    "insuranceCompany": "Bee Life",
+    "productName": "Wealth Plus",
+    "currency": "USD",
+    "year": 2023,
+    "achievementRate": 0.92,
+    "source": "BeeFintech Research Sample",
+    "updatedAt": "2026-03-20T00:00:00.000Z"
+  },
+  {
+    "id": "d2",
+    "insuranceCompany": "Bee Life",
+    "productName": "Secure Growth",
+    "currency": "HKD",
+    "year": 2024,
+    "achievementRate": 0.88,
+    "source": "BeeFintech Research Sample",
+    "updatedAt": "2026-03-20T00:00:00.000Z"
+  },
+  {
+    "id": "d3",
+    "insuranceCompany": "Harbor Assurance",
+    "productName": "Family Shield",
+    "currency": "USD",
+    "year": 2022,
+    "achievementRate": 0.95,
+    "source": "BeeFintech Research Sample",
+    "updatedAt": "2026-03-20T00:00:00.000Z"
+  },
+  {
+    "id": "d4",
+    "insuranceCompany": "Harbor Assurance",
+    "productName": "Future Prime",
+    "currency": "HKD",
+    "year": 2023,
+    "achievementRate": 0.9,
+    "source": "BeeFintech Research Sample",
+    "updatedAt": "2026-03-20T00:00:00.000Z"
+  }
+]
