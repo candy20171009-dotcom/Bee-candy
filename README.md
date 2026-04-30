@@ -39,3 +39,24 @@ npm run dev
 
 - 已实现 mock 闭环流程
 - 尚未接入真实 Supabase（将在 Phase 2 进行）
+
+## Phase 2 数据源切换（已支持）
+
+默认使用 mock 数据源。若要切换到 Supabase，请在 `.env.local` 配置：
+
+```bash
+DATA_SOURCE=supabase
+NEXT_PUBLIC_SUPABASE_URL=https://<your-project-ref>.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=<your-service-role-key>
+```
+
+如需回退到 mock：
+
+```bash
+DATA_SOURCE=mock
+```
+
+Supabase 需准备两张表：
+
+- `demo_requests`
+- `dividend_rates`
