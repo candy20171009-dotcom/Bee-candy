@@ -60,3 +60,13 @@ Supabase 需准备两张表：
 
 - `demo_requests`
 - `dividend_rates`
+
+联调文档与 SQL：
+
+- [Supabase 联调说明](docs/supabase/联调说明.md)
+- [建表 SQL](docs/supabase/schema.sql)
+- [样例数据 SQL](docs/supabase/seed-dividend-sample.sql)
+
+健康检查接口：
+
+- `GET /api/health/supabase`：检查 Supabase 连接与核心表可读性
