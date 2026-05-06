@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { appCapabilities } from "@/features/site/app-content";
 
 const flowSteps = [
   { title: "资讯", detail: "每日推送市场资讯与行政通知" },
@@ -142,6 +143,53 @@ export default function HomePage() {
               <p className="mt-2 text-sm leading-6 text-[#556a96]">{step.detail}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section id="app-collab" className="mx-auto w-full max-w-6xl px-6 py-12">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.16em] text-[#3e63c6]">APP + CRM COLLABORATION</p>
+            <h2 className="mt-2 text-3xl font-semibold text-[#142a4f]">APP + CRM 协同能力</h2>
+          </div>
+          <p className="max-w-md text-sm text-[#58709f]">移动端与后台协同，覆盖顾问外出服务、流程跟进与团队管理场景</p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {appCapabilities.map((capability) => (
+            <article
+              key={capability.id}
+              className="rounded-2xl border border-[#d8e5ff] bg-white p-5 shadow-[0_12px_26px_rgba(58,92,169,0.08)]"
+            >
+              <h3 className="text-lg font-semibold text-[#1f3f88]">{capability.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-[#56709a]">{capability.description}</p>
+              <p className="mt-3 inline-flex rounded-full bg-[#eef4ff] px-3 py-1 text-xs font-medium text-[#3158c4]">{capability.value}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <article className="rounded-2xl border border-[#d8e5ff] bg-[#f7faff] p-5">
+            <h3 className="text-base font-semibold text-[#1f3f88]">顾问</h3>
+            <p className="mt-2 text-sm text-[#56709a]">快速响应咨询、移动跟进、提升沟通效率。</p>
+          </article>
+          <article className="rounded-2xl border border-[#d8e5ff] bg-[#f7faff] p-5">
+            <h3 className="text-base font-semibold text-[#1f3f88]">团队长</h3>
+            <p className="mt-2 text-sm text-[#56709a]">掌握团队节点，优化资源分配与流程协作。</p>
+          </article>
+          <article className="rounded-2xl border border-[#d8e5ff] bg-[#f7faff] p-5">
+            <h3 className="text-base font-semibold text-[#1f3f88]">运营</h3>
+            <p className="mt-2 text-sm text-[#56709a]">维护线索与进度，保障流程完整与服务连续。</p>
+          </article>
+        </div>
+
+        <div className="mt-8">
+          <Link
+            href="/demo"
+            className="inline-flex rounded-xl bg-gradient-to-r from-[#2d66ff] to-[#6f76ff] px-5 py-2 text-sm font-semibold text-white shadow-[0_10px_22px_rgba(49,94,205,0.28)]"
+          >
+            预约产品演示
+          </Link>
         </div>
       </section>
 

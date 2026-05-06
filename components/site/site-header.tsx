@@ -3,7 +3,6 @@ import Link from "next/link";
 const navItems = [
   { href: "/", label: "首頁" },
   { href: "/security", label: "安全" },
-  { href: "/app", label: "APP" },
   { href: "/dividend-tool", label: "分紅查詢" },
   { href: "/demo", label: "預約演示" },
 ];
