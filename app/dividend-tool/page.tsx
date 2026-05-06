@@ -8,8 +8,7 @@ import type { DividendRecord } from "@/domains/dividend/types";
 type FilterQuery = {
   insuranceCompany?: string;
   productName?: string;
-  currency?: string;
-  year?: string;
+  productExact?: boolean;
 };
 
 export default function DividendToolPage() {
@@ -23,8 +22,13 @@ export default function DividendToolPage() {
 
     const search = new URLSearchParams();
     Object.entries(query).forEach(([key, value]) => {
-      if (value?.trim()) {
-        search.set(key, value.trim());
+      if (typeof value === "string") {
+        const trimmed = value.trim();
+        if (trimmed) {
+          search.set(key, trimmed);
+        }
+      } else if (typeof value === "boolean") {
+        search.set(key, String(value));
       }
     });
 
@@ -47,7 +51,7 @@ export default function DividendToolPage() {
           <p className="text-xs font-semibold tracking-[0.2em] text-[#3e63c6]">DIVIDEND TOOL</p>
           <h1 className="mt-3 text-4xl font-semibold text-[#142a50]">分紅達成率查詢工具</h1>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-[#5a709c]">
-            可按保險公司、產品、貨幣與年度查詢歷史分紅達成率。資料僅供參考，最終以官方披露為準。
+            当前版本基于 2022 年报告，可按保險公司與產品名稱查詢分紅達成率。資料僅供參考，最終以官方披露為準。
           </p>
         </div>
       </section>

@@ -5,12 +5,11 @@ import { getRepositories } from "@/repositories/repository-factory";
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const yearValue = searchParams.get("year");
+    const productExact = searchParams.get("productExact");
     const query = {
       insuranceCompany: searchParams.get("insuranceCompany") ?? undefined,
       productName: searchParams.get("productName") ?? undefined,
-      currency: searchParams.get("currency") ?? undefined,
-      year: yearValue ? Number(yearValue) : undefined,
+      productExact: productExact === "true",
     };
 
     const { dividendRepository } = getRepositories();

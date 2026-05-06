@@ -1,45 +1,41 @@
+import mockData from "@/mocks/dividend-rates-2022.json";
 import type { DividendQuery, DividendRecord } from "@/domains/dividend/types";
 import type { DividendRepository } from "@/repositories/contracts/dividend-repository";
-import { supabaseFetch } from "@/lib/http/supabase-rest";
 
-function escapeLike(value: string): string {
-  return value.replace(/[%_]/g, "");
+function includesIgnoreCase(source: string, term: string): boolean {
+  return source.toLowerCase().includes(term.toLowerCase());
 }
 
-function mapRowToDividend(row: Record<string, unknown>): DividendRecord {
-  return {
-    id: String(row.id),
-    insuranceCompany: String(row.insurance_company ?? ""),
-    productName: String(row.product_name ?? ""),
-    currency: String(row.currency ?? ""),
-    year: Number(row.year ?? 0),
-    achievementRate: Number(row.achievement_rate ?? 0),
-    source: String(row.source ?? ""),
-    updatedAt: String(row.updated_at ?? new Date().toISOString()),
-  };
+function equalsIgnoreCase(a: string, b: string): boolean {
+  return a.trim().toLowerCase() === b.trim().toLowerCase();
+}
+
+function normalizeSpaces(value: string): string {
+  return value.replace(/\s+/g, "");
+}
+
+function equalsStrictNormalized(a: string, b: string): boolean {
+  return normalizeSpaces(a) === normalizeSpaces(b);
 }
 
 export class SupabaseDividendRepository implements DividendRepository {
   async search(query: DividendQuery): Promise<DividendRecord[]> {
-    const params = new URLSearchParams();
-    params.set("select", "*");
-    params.set("order", "updated_at.desc");
-
-    if (query.insuranceCompany) {
-      params.set("insurance_company", `ilike.*${escapeLike(query.insuranceCompany)}*`);
-    }
-    if (query.productName) {
-      params.set("product_name", `ilike.*${escapeLike(query.productName)}*`);
-    }
-    if (query.currency) {
-      params.set("currency", `eq.${query.currency}`);
-    }
-    if (query.year) {
-      params.set("year", `eq.${query.year}`);
-    }
-
-    const response = await supabaseFetch(`dividend_rates?${params.toString()}`);
-    const rows = (await response.json()) as Record<string, unknown>[];
-    return rows.map(mapRowToDividend);
+    // 当前版本固定对齐 2022 报告口径，优先使用清洗后的本地数据源。
+    // 后续如需切回 Supabase，可在此恢复远端查询并保持同一返回结构。
+    return (mockData as DividendRecord[]).filter((row) => {
+      if (query.insuranceCompany && !includesIgnoreCase(row.insuranceCompany, query.insuranceCompany)) {
+        return false;
+      }
+      if (query.productName) {
+        if (query.productExact) {
+          if (!(equalsIgnoreCase(row.productName, query.productName) || equalsStrictNormalized(row.productName, query.productName))) {
+            return false;
+          }
+        } else if (!includesIgnoreCase(row.productName, query.productName)) {
+          return false;
+        }
+      }
+      return true;
+    });
   }
 }

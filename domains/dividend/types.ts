@@ -2,9 +2,10 @@ export type DividendRecord = {
   id: string;
   insuranceCompany: string;
   productName: string;
+  bonusType: string;
   currency: string;
-  year: number;
-  achievementRate: number;
+  rates: Record<string, number | null>;
+  latestRate: number | null;
   source: string;
   updatedAt: string;
 };
@@ -12,6 +13,5 @@ export type DividendRecord = {
 export type DividendQuery = Partial<{
   insuranceCompany: string;
   productName: string;
-  currency: string;
-  year: number;
+  productExact: boolean;
 }>;
