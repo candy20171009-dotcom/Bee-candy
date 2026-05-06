@@ -10,14 +10,14 @@ const navItems = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-20 border-b border-white/10 bg-[#070d2b]/86 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-[#d9e6ff] bg-white/85 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-headline text-lg font-bold text-[#dfe9ff]">
+        <Link href="/" className="font-headline text-lg font-bold text-[#19408f]">
           BeeFintech
         </Link>
-        <nav className="flex items-center gap-5 text-sm text-[#d3dcff]">
+        <nav className="flex items-center gap-5 text-sm text-[#4b6494]">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-[#25d0f7]">
+            <Link key={item.href} href={item.href} className="transition hover:text-[#2f66ff]">
               {item.label}
             </Link>
           ))}
